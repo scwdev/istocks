@@ -1,23 +1,43 @@
-import logo from './logo.svg';
+import React from 'react'
+import { Route, Switch } from 'react-router-dom';
 import './App.css';
 
+import Main from './pages/Main'
+import Nav from './components/Nav'
+import About from './pages/About'
+import StocksList from './pages/StocksList';
+import StockDetails from './pages/StockDetails';
+
+import data from './Data.js'
+
+
 function App() {
+  const apiKey = 'cf47ce1d01970bfe5c3338b6adbd37f9'
+
+  
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <h1>iStocks</h1>
+      <Nav />
+      <Switch>
+        <Route exact path='/'>
+          <Main />
+        </Route>
+        <Route path='/about'>
+          <About />
+        </Route>
+        <Route exact path='/stocks'>
+          <StocksList apiKey={apiKey}/>
+        </Route>
+        <Route
+          path='/stocks/:symbol'
+          render={(routerProps) => {
+            return <StockDetails apiKey={apiKey} {...routerProps}/>
+          }}
+          />
+      </Switch>
+      
     </div>
   );
 }
