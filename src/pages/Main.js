@@ -2,9 +2,9 @@ import React from 'react'
 
 const Main = (props) => {
     return (
-        <div>
-            Main Component
-        </div>
+        <h1>
+            stonks go heer
+        </h1>
     )
 }
 

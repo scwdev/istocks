@@ -6,7 +6,7 @@ const Nav = (props) => {
         <div className='nav'>
             <Link to='/'>
                 <h3>
-                    iSTOCKS
+                    HOME
                 </h3>
             </Link>
             <Link to='/about'>
